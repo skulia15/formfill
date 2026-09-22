@@ -1,0 +1,11 @@
+# Captured profiles never live in the repo — Chrome keeps them in
+# chrome.storage.local, outside this folder. These entries just make sure an
+# exported or backed-up profile can't be committed by accident.
+*.profiles.json
+profiles.json
+formfill-export*.json
+*.local.json
+.env
+.env.*
+node_modules/
+.DS_Store

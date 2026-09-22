@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header>
+      <strong>FormFill</strong>
+      <span id="url" title=""></span>
+    </header>
+
+    <nav>
+      <button class="tab active" data-tab="capture">Capture</button>
+      <button class="tab" data-tab="saved">Saved <span id="count"></span></button>
+    </nav>
+
+    <section id="capture">
+      <button id="scan" class="primary">Read form on this page</button>
+      <div id="editor" hidden>
+        <label class="row">
+          <span>Name</span>
+          <input id="name" type="text" placeholder="e.g. Staging login" />
+        </label>
+
+        <fieldset>
+          <legend>Match</legend>
+          <label><input type="radio" name="mode" value="exact" checked /> Exact URL</label>
+          <label><input type="radio" name="mode" value="prefix" /> URL starts with</label>
+          <label><input type="radio" name="mode" value="origin" /> Whole site</label>
+          <label><input type="radio" name="mode" value="glob" /> Wildcard</label>
+          <input id="pattern" type="text" spellcheck="false" />
+        </fieldset>
+
+        <div id="fields"></div>
+
+        <label class="row inline">
+          <input id="autofill" type="checkbox" checked />
+          <span>Fill automatically on page load</span>
+        </label>
+
+        <div class="actions">
+          <button id="save" class="primary">Save</button>
+          <button id="cancel">Cancel</button>
+        </div>
+      </div>
+      <p id="empty" class="muted" hidden>No filled fields found on this page.</p>
+    </section>
+
+    <section id="saved" hidden></section>
+
+    <p id="toast" hidden></p>
+    <script src="match.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>
